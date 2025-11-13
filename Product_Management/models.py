@@ -69,7 +69,7 @@ class Product(models.Model):
 
 class ProductInfo(models.Model):
     product= models.OneToOneField(Product,on_delete=models.CASCADE)
-    product_name = models.CharField(max_length=255)
+    product_name = models.JSONField(max_length=255)
     text1_extra = models.JSONField(blank=True, null=True)
     text2_extra = models.JSONField(blank=True, null=True)
     text3_extra = models.JSONField(blank=True, null=True)
