@@ -70,10 +70,10 @@ class Product(models.Model):
 class ProductInfo(models.Model):
     product= models.OneToOneField(Product,on_delete=models.CASCADE)
     product_name = models.CharField(max_length=255)
-    text1_extra = models.TextField(blank=True, null=True)
-    text2_extra = models.TextField(blank=True, null=True)
-    text3_extra = models.TextField(blank=True, null=True)
-    text4_extra = models.TextField(blank=True, null=True)
+    text1_extra = models.JSONField(blank=True, null=True)
+    text2_extra = models.JSONField(blank=True, null=True)
+    text3_extra = models.JSONField(blank=True, null=True)
+    text4_extra = models.JSONField(blank=True, null=True)
     json_text_properties = models.JSONField(blank=True, null=True)
     category = models.JSONField(blank=True, null=True)
     type_of_need = models.JSONField(blank=True, null=True)
@@ -240,3 +240,4 @@ class PolicyOwnerData(models.Model):
 
     
     
+
