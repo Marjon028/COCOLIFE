@@ -38,7 +38,7 @@ class TypeOfNeed(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    #user = models.ForeignKey(User,on_delete=models.CASCADE)
     def __str__(self):
         return self.name
 class Product(models.Model):
@@ -48,7 +48,7 @@ class Product(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    #user = models.ForeignKey(User,on_delete=models.CASCADE)
     status = models.CharField(
         max_length=50,
         choices=[
@@ -86,7 +86,7 @@ class ProductInfo(models.Model):
     terms_and_conditions = models.FileField(upload_to='terms_and_conditions/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.product_name
@@ -106,7 +106,7 @@ class ProductInfoImage(models.Model):
     alt_text = models.CharField(max_length=255, blank=True, null=True)
     visibility = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    #user = models.ForeignKey(User,on_delete=models.CASCADE)
     
 
     def __str__(self):
@@ -146,7 +146,7 @@ class PolicyOwner(models.Model):
     are_you_sure_exposed_person = models.JSONField(default=default_policy_owner_data)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     text1_extra = models.JSONField(blank=True, null=True)
     text2_extra = models.JSONField(blank=True, null=True)
     text3_extra = models.JSONField(blank=True, null=True)
@@ -170,7 +170,7 @@ class PolicyOwnerPdfFile(models.Model):
     )
     mapping = models.JSONField(blank=True, null=True)
     pdf_file = models.FileField(upload_to='pdfs/')
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -224,7 +224,7 @@ class PolicyOwnerData(models.Model):
     are_you_sure_exposed_person = models.CharField(max_length=255, null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)
     text1_extra = models.CharField(max_length=255, null=True, blank=True)
     text2_extra = models.CharField(max_length=255, null=True, blank=True)
     text3_extra = models.CharField(max_length=255, null=True, blank=True)

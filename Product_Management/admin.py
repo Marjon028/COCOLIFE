@@ -10,7 +10,7 @@ class ProductInfoImageAdmin(admin.ModelAdmin):
 
 @admin.register(ProductInfo)
 class ProductInfoAdmin(admin.ModelAdmin):
-    list_display = ('product_name', 'user', 'created_at', 'updated_at')
+    list_display = ('product_name', 'created_at', 'updated_at')
     search_fields = ('product_name',)
 
 @admin.register(TypeOfNeed)
@@ -33,7 +33,7 @@ class PolicyOwnerAdmin(admin.ModelAdmin):
 
 @admin.register(PolicyOwnerPdfFile)
 class PolicyOwnerPdfFileAdmin(admin.ModelAdmin):
-    list_display=('product','mapping','pdf_file','user','created_at','updated_at')
+    list_display=('product','mapping','pdf_file','created_at','updated_at')
     search_fields=('product',)
 
 @admin.register(PolicyOwnerData)

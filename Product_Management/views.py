@@ -14,8 +14,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     serializer_class = ProductSerializer
     #authentication_classes = [TokenAuthentication]
     #permission_classes = [IsAuthenticated]
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''
 
 
 class ProductInfoViewSet(viewsets.ModelViewSet):
@@ -23,30 +23,30 @@ class ProductInfoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductInfoSerializer
     #permission_classes = [IsAuthenticated]
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''
 
 class ProductInfoImageViewSet(viewsets.ModelViewSet):
     queryset = ProductInfoImage.objects.all()
     serializer_class = ProductInfoImageSerializer
     #authentication_classes = [TokenAuthentication]
     #permission_classes = [IsAuthenticated]
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''
 
 class PolicyOwnerPdfFileViewSet(viewsets.ModelViewSet):
     queryset = PolicyOwnerPdfFile.objects.all()
     serializer_class= PolicyOwnerPdfFileSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''
 
 class PolicyOwnerViewSet(viewsets.ModelViewSet):
     queryset = PolicyOwner.objects.all()
     serializer_class = PolicyOwnerSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''
 
     filter_backends= [filters.SearchFilter]
     search_fields = ['product__name','product__id']
@@ -84,7 +84,7 @@ class PolicyOwnerViewSet(viewsets.ModelViewSet):
                 "text2_extra": None,
                 "text3_extra": None,
                 "text4_extra": None,
-                "user": None,
+               # "user": None,
             }
             return Response(default_data)
         # Default behavior kung may laman na
@@ -96,12 +96,12 @@ class PolicyOwnerDataViewSet(viewsets.ModelViewSet):
     queryset = PolicyOwnerData.objects.all()
     serializer_class = PolicyOwnerDataSerializer
     
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''
 
 class TypeOfNeedViewSet(viewsets.ModelViewSet):
     queryset = TypeOfNeed.objects.all()
     serializer_class = TypeOfNeedSerializer
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    '''def perform_create(self, serializer):
+        serializer.save(user=self.request.user)'''

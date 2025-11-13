@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 
 class ProductInfoImageSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    #user = serializers.ReadOnlyField(source='user.username')
     #created_at = serializers.DateTimeField(allow_null=True, required=False, default=None)
     class Meta:
         model = ProductInfoImage
@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email','password']
 
 class ProductInfoSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    #user = serializers.ReadOnlyField(source='user.username')
     product_images = ProductInfoImageSerializer(many=True,read_only=True)
  
 
@@ -44,13 +44,13 @@ class ProductInfoSerializer(serializers.ModelSerializer):
             'product_images',
             'created_at',
             'updated_at',
-            'user',
+            
         ]
         
    
 
 class TypeOfNeedSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    #user = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = TypeOfNeed
@@ -59,13 +59,13 @@ class TypeOfNeedSerializer(serializers.ModelSerializer):
 
 
 class PolicyOwnerPdfFileSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    #user = serializers.ReadOnlyField(source='user.username')
     class Meta:
         model = PolicyOwnerPdfFile
         fields = '__all__'
 
 class PolicyOwnerSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    #user = serializers.ReadOnlyField(source='user.username')
 
     class Meta:
         model = PolicyOwner
@@ -119,8 +119,8 @@ class PolicyOwnerSerializer(serializers.ModelSerializer):
 
 
 class PolicyOwnerDataSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
-    user = UserSerializer(read_only=True)
+    #user = serializers.ReadOnlyField(source='user.username')
+    #user = UserSerializer(read_only=True)
     title_name = serializers.CharField(source='title.name', read_only=True)
     class Meta:
         model = PolicyOwnerData
@@ -129,14 +129,14 @@ class PolicyOwnerDataSerializer(serializers.ModelSerializer):
                   'mobile_number', 'email_address', 'tin_number', 'sss_gsis_number', 'occupation', 'nature_of_business',
                   'specific_source_of_income', 'permanent_address', 'present_address', 'office_address',
                   'politically_exposed_person', 'are_you_sure_exposed_person', 'text1_extra', 'text2_extra',
-                  'text3_extra', 'text4_extra', 'user']
+                  'text3_extra', 'text4_extra']
 
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    user = serializers.ReadOnlyField(source='user.username')
+    #user = serializers.ReadOnlyField(source='user.username')
     policy_owner_pdf_file = PolicyOwnerPdfFileSerializer(read_only=True)
     class Meta:
         model = Product
         fields = ['id','name','type_of_need',
-                  'description','created_at','updated_at','status','policy_owner_pdf_file','user']
+                  'description','created_at','updated_at','status','policy_owner_pdf_file']
