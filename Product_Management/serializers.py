@@ -20,6 +20,7 @@ class UserSerializer(serializers.ModelSerializer):
 class ProductInfoSerializer(serializers.ModelSerializer):
     #user = serializers.ReadOnlyField(source='user.username')
     product_images = ProductInfoImageSerializer(many=True,read_only=True)
+    images_count = serializers.SerializerMethodField()
  
 
     class Meta:
@@ -42,10 +43,13 @@ class ProductInfoSerializer(serializers.ModelSerializer):
             'packages',
             'terms_and_conditions',
             'product_images',
+            'images_count',
             'created_at',
             'updated_at',
             
         ]
+    def get_images_count(self,obj):
+        return obj.product_images.count()
         
    
 

@@ -89,7 +89,11 @@ class ProductInfo(models.Model):
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.product_name
+        try:
+            return str(self.product_name['name'])
+        except:
+            return "invald format of product Info Name"
+
     
     class Meta:
         verbose_name = "Product Info"
@@ -110,7 +114,7 @@ class ProductInfoImage(models.Model):
     
 
     def __str__(self):
-        return self.alt_text or f"Image for {self.product_info.product_name}"
+        return f"Image for {self.product_info.product_name}"
     
     class Meta:
         verbose_name = "Product Info Image"
