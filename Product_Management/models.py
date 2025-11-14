@@ -108,6 +108,7 @@ class ProductInfoImage(models.Model):
     )
     image = models.ImageField(upload_to='product_info_images/')
     alt_text = models.CharField(max_length=255, blank=True, null=True)
+    tags_name = models.CharField(max_length=255, blank=True, null=True)
     visibility = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     #user = models.ForeignKey(User,on_delete=models.CASCADE)
